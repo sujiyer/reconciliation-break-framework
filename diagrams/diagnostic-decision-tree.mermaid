@@ -1,0 +1,24 @@
+flowchart TD
+    A[Reconciliation break detected] --> B{Customer impact?}
+
+    B -->|Yes| C[Assess severity and financial impact]
+    B -->|No| D[Classify operational category]
+
+    C --> E{Financial correction required?}
+    E -->|Yes| F[Calculate adjustment and validate affected population]
+    E -->|No| G[Prepare customer communication if needed]
+
+    D --> H[Identify source system and comparison system]
+    H --> I{Timing issue?}
+
+    I -->|Yes| J[Monitor until SLA or settlement window closes]
+    I -->|No| K[Investigate root cause]
+
+    F --> L[Resolve break]
+    G --> L
+    J --> L
+    K --> L
+
+    L --> M[Log root cause]
+    M --> N[Add prevention control]
+    N --> O[Close break]
